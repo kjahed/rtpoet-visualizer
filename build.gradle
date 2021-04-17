@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'ca.jahed.rtpoet'
-version '1.0'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -15,7 +15,7 @@ repositories {
         url = uri("https://maven.pkg.github.com/kjahed/rtpoet")
         credentials {
             username = "kjahed"
-            password = "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"
+            password = "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"
         }
     }
 }
@@ -23,7 +23,7 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
 
-    compile group: 'ca.jahed.rtpoet', name: 'rtpoet', version: '1.0'
+    compile group: 'ca.jahed.rtpoet', name: 'rtpoet', version: '1.0-SNAPSHOT'
     compile group: 'org.jgrapht', name: 'jgrapht', version: '1.4.0'
     compile group: 'org.jgrapht', name: 'jgrapht-core', version: '1.4.0'
     compile group: 'org.jgrapht', name: 'jgrapht-ext', version: '1.4.0'
