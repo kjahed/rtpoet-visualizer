@@ -19,7 +19,7 @@ import kotlin.collections.HashMap
 import kotlin.collections.HashSet
 
 object RTVisualizer {
-    fun draw(root: RTElement, ignore: List<Class<*>> = listOf()) {
+    fun draw(root: RTElement, ignore: List<Any> = listOf()) {
         val frame = JFrame()
         frame.defaultCloseOperation = JFrame.HIDE_ON_CLOSE
 
@@ -42,7 +42,7 @@ object RTVisualizer {
                 c = c.superclass
             }
 
-            for (field in fields) {
+            for (field in fields.filter { it !in ignore }) {
                 field.isAccessible = true
                 val obj = field[current]
 
