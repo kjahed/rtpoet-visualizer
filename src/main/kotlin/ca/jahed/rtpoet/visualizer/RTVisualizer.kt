@@ -3,6 +3,7 @@ package ca.jahed.rtpoet.visualizer
 import ca.jahed.rtpoet.rtmodel.RTElement
 import com.mxgraph.layout.mxCompactTreeLayout
 import com.mxgraph.model.mxICell
+import com.mxgraph.swing.handler.mxKeyboardHandler
 import com.mxgraph.swing.mxGraphComponent
 import com.mxgraph.util.mxConstants
 import org.jgrapht.Graph
@@ -86,6 +87,8 @@ object RTVisualizer {
 
         val jgxAdapter = JGraphXAdapter(graph)
         val component = mxGraphComponent(jgxAdapter)
+        mxKeyboardHandler(component)
+
         component.viewport.background = Color.white
         jgxAdapter.cellToVertexMap.forEach { (mxICell: mxICell, _: Any?) ->
             component.graph.updateCellSize(mxICell)
@@ -104,15 +107,6 @@ object RTVisualizer {
         layout.nodeDistance = 25
         layout.isHorizontal = false
         layout.execute(jgxAdapter.defaultParent)
-
-        component.graph.isAllowDanglingEdges = false
-        component.graph.isCellsResizable = false
-        component.graph.isCellsEditable = false
-        component.graph.isCellsMovable = false
-        component.graph.isLabelsClipped = false
-        component.graph.isResetEdgesOnMove = false
-        component.graph.isVertexLabelsMovable = false
-        component.graph.isEdgeLabelsMovable = true
 
         frame.contentPane.add(component)
         frame.pack()
